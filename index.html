@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grid Bot 儀表板 | 網格交易模擬</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#0f172a;color:#e2e8f0;font-family:-apple-system,'Segoe UI','Noto Sans TC',sans-serif;padding:14px 12px 30px}
+.wrap{max-width:640px;margin:0 auto}
+h1{font-size:20px;margin:6px 0 2px}
+.asof{color:#94a3b8;font-size:12px;margin-bottom:12px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px 12px}
+.card-label{font-size:11px;color:#94a3b8}
+.card-value{font-size:19px;font-weight:700;margin-top:2px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.chip{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:9px 11px}
+.chip-label{font-size:11px;color:#94a3b8}
+.chip-value{font-size:15px;font-weight:700;margin-top:2px}
+.chip-detail{font-size:10px;color:#94a3b8;margin-top:2px}
+.panel{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:12px;margin-bottom:12px}
+.panel-title{font-size:13px;font-weight:700;margin-bottom:8px}
+.bench-row{display:flex;justify-content:space-between;font-size:14px;padding:3px 0}
+.fineprint{font-size:10px;color:#94a3b8;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:4px 6px;border-bottom:1px solid #334155}
+td{padding:5px 6px;border-bottom:1px solid #24324a}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.banner{border-radius:10px;padding:9px 11px;font-size:12px;margin-bottom:10px}
+.banner.miss{background:#452a09;border:1px solid #f59e0b;color:#fde68a}
+.banner.sim{background:#172554;border:1px solid #3b82f6;color:#bfdbfe}
+.warnbox{border:1px dashed #f59e0b}
+.footer{font-size:10px;color:#94a3b8;margin-top:14px;line-height:1.5}
+code{background:#0f172a;padding:1px 4px;border-radius:4px}
+.badge{display:inline-block;background:#334155;border-radius:6px;padding:1px 7px;font-size:10px;color:#94a3b8;margin-left:6px}
+</style></head><body><div class="wrap">
+<h1>🤖 Grid Bot 儀表板<span class="badge">SIMULATOR</span></h1>
+<div class="asof">As of <b>2026-10-27T16:11:19+00:00</b>（UTC）｜快照來源：simulator｜渲染 2026-10-27 16:18 UTC</div>
+<div class="banner miss">∅ 欄位缺失：missing:breakers.stale_48h</div><div class="banner sim">🧪 資料來源：模擬盤結算（source=simulator）。尚未接獲 alice 端實盤快照；上線後同一管道自動切換。</div>
+<div class="cards"><div class="card"><div class="card-label">淨值 (USDT)</div><div class="card-value" style="color:#e2e8f0">1,000.24</div></div><div class="card"><div class="card-label">起始淨值</div><div class="card-value" style="color:#94a3b8">1,000.00</div></div><div class="card"><div class="card-label">回撤/報酬 %</div><div class="card-value" style="color:#22c55e">+0.024%</div></div><div class="card"><div class="card-label">快照狀態</div><div class="card-value" style="color:#22c55e">已對帳</div></div></div>
+<div class="panel"><div class="panel-title">🚨 風控斷路器（回撤 -5%／48h 掛單超時／滑價告警）</div>
+<div class="chips" style="margin-bottom:0"><div class="chip"><div class="chip-label">回撤斷路器 -5%</div><div class="chip-value" style="color:#22c55e">● 正常</div><div class="chip-detail">目前回撤 +0.02%</div></div><div class="chip"><div class="chip-label">48h 掛單超時</div><div class="chip-value" style="color:#f59e0b">∅ 未追蹤</div><div class="chip-detail">程式尚未記錄掛單時間戳，不做推測</div></div><div class="chip"><div class="chip-label">滑價告警</div><div class="chip-value" style="color:#22c55e">● 0 次</div></div><div class="chip"><div class="chip-label">API 連續錯誤</div><div class="chip-value" style="color:#22c55e">● 0 次</div></div></div></div>
+<div class="panel"><div class="panel-title">📊 月收益 KPI 對比 — 網格 vs 買進持有</div><div class="bench-row"><span>網格報酬</span><b>+0.024%</b></div><div class="bench-row"><span>Buy &amp; Hold 基準</span><b>+1.117%</b></div><div class="bench-row"><span>超額/落後</span><b style="color:#ef4444">-1.092%</b></div><div class="bench-row"><span>基準净值</span><b>$1,011.16</b></div><div class="fineprint">KPI 參考帶（D1 拍板）：保守 2–5%・目標 5–10%｜算法：推算：起始資金 50/50 買入持有（起始價自 Binance 回溯，非猜測）</div></div>
+<div class="panel"><div class="panel-title">持倉明細</div><table><tr><th>交易對</th><th>現金 USDT</th><th>持倉</th><th>報價</th><th>市值</th><th>已實現</th></tr><tr><td>BTCUSDT</td><td class='num'>500.08</td><td class='num'>0.000000</td><td class='num'>80,480.56</td><td class='num'>0.00</td><td class='num'>0.0751</td></tr><tr><td>ETHUSDT</td><td class='num'>500.17</td><td class='num'>0.000000</td><td class='num'>2,344.30</td><td class='num'>0.00</td><td class='num'>0.1694</td></tr></table></div>
+<div class="panel"><div class="panel-title">結算歷史（近 14 日）</div><table><tr><th>日期</th><th>淨值</th><th>回撤%</th><th>來源</th><th>回撤/超時/滑價</th></tr><tr><td>2026-10-27</td><td class='num'>1,000.24</td><td class='num'>+0.024%</td><td class='num'>simulator</td><td><span style='color:#22c55e'>●</span> <span style='color:#f59e0b'>∅</span> <span style='color:#22c55e'>●</span></td></tr></table></div>
+<div class="footer">
+回撤基準 =（現金＋持倉市值）／起始淨值，與交易程式共用同一計算函式（risk_common）交叉驗證。<br>
+本儀表板為每日 00:00 UTC 自動渲染之<strong>靜態快照</strong>；數據為模擬交易（不碰真錢）。<br>
+GitHub Pages・零伺服器曝面｜repo: usterrywu5-a11y/grid-dashboard（僅公開渲染結果，原始碼與結算數據留私有）
+</div>
+</div></body></html>
